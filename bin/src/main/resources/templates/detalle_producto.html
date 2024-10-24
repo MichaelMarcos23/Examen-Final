@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD con Thymeleaf y Bootstrap</title>
+    <!-- Estilos de Bootstrap -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Detalle del Producto</h2>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title" th:text="'Nombre producto: ' + ${producto.nombreProducto}">No existe</h5>
+                <p class="card-text" th:text="'Precio: '+ ${producto.precio}"></p>
+                <p class="card-text" th:text="'Stock: '+ ${producto.stock}"></p>
+                <p class="card-text" th:text="'Categoria: ' + ${producto.categoriaEntity.nombreCategoria}"></p>
+                
+                <a th:href="@{/menu/listado}" class="btn btn-secondary">Regresar</a>
+                <a th:href="@{/menu/delete/{productoId}(productoId=${producto.productoId})}" class="btn btn-danger" 
+                   onclick="return confirm('¿Estás seguro de que quieres eliminar este empleado?');">Eliminar</a>
+                
+
+                
+            </div>
+        </div>
+    </div>
+    
+    
+
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    
+</body>
+</html>
